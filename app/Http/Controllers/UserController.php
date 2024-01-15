@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Requests\StoreBooksRequest;
 use App\Http\Requests\UpdateBooksRequest;
-
+use App\Http\Resources\UserCollection;
 
 
 class UserController extends Controller
@@ -16,6 +16,8 @@ class UserController extends Controller
     public function index()
     {
         //
+        $users = User::paginate();
+        return new UserCollection($users);
     }
 
     /**
