@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
-use App\Http\Requests\StoreReviewRequest;
-use App\Http\Requests\UpdateReviewRequest;
-use App\Http\Resources\ReviewCollection;
-class ReviewController extends Controller
+use App\Models\User;
+use App\Http\Requests\StoreBooksRequest;
+use App\Http\Requests\UpdateBooksRequest;
+use App\Http\Resources\UserCollection;
+
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,8 @@ class ReviewController extends Controller
     public function index()
     {
         //
-        $reviews = Review::paginate();
-        return new ReviewCollection($reviews);
+        $users = User::paginate();
+        return new UserCollection($users);
     }
 
     /**
@@ -29,7 +31,7 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreReviewRequest $request)
+    public function store(StoreBooksRequest $request)
     {
         //
     }
@@ -37,7 +39,7 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Review $review)
+    public function show(User $users)
     {
         //
     }
@@ -45,7 +47,7 @@ class ReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Review $review)
+    public function edit(User $users)
     {
         //
     }
@@ -53,7 +55,7 @@ class ReviewController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateReviewRequest $request, Review $review)
+    public function update(UpdateUserRequest $request, User $users)
     {
         //
     }
@@ -61,7 +63,7 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Review $review)
+    public function destroy(User $users)
     {
         //
     }
