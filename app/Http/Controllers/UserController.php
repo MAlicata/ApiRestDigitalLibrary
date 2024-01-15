@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Http\Requests\StoreBooksRequest;
 use App\Http\Requests\UpdateBooksRequest;
 use App\Http\Resources\UserCollection;
+use App\Http\Resources\UserResource;
 use App\Filters\UserFilter;
 use Illuminate\Http\Request;
 
@@ -42,9 +43,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $users)
+    public function show(User $user)
     {
         //
+        return new UserResource($user);
     }
 
     /**
