@@ -1,7 +1,8 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\User;
+use App\Models\Books;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class ReviewFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::factory(), // Crear un usuario de prueba asociado
+            'book_id' => Books::factory(), // Crear un libro de prueba asociado
+            'review_text' => $this->faker->paragraph,
+            'rating' => $this->faker->numberBetween(1, 5)
         ];
     }
 }
