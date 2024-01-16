@@ -6,18 +6,22 @@ use App\Models\User;
 use App\Http\Requests\StoreBooksRequest;
 use App\Http\Requests\UpdateBooksRequest;
 use App\Http\Resources\UserCollection;
-
+use App\Http\Resources\UserResource;
+use App\Filters\UserFilter;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $users = User::paginate();
-        return new UserCollection($users);
+        $filter = new UserFilter();
+        $queryItems = $filter->transform($request);
+        $users = User::where($queryItems);
+        return new UserCollection($users->paginate()->appends($request->query()));
     }
 
     /**
@@ -39,9 +43,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $users)
+    public function show(User $user)
     {
         //
+        return new UserResource($user);
     }
 
     /**
