@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Validation\Rule;
 class StoreBooksRequest extends FormRequest
 {
     /**
@@ -11,7 +11,7 @@ class StoreBooksRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true; //true autorizamos a todos 
     }
 
     /**
@@ -23,6 +23,15 @@ class StoreBooksRequest extends FormRequest
     {
         return [
             //
+            'title' => ['required'],
+            'author' => ['required'],
+            'publicationYear' => ['required'],
+            'pages' => ['required'],
         ];
+    }
+    protected function prepareForValidation(){
+        $this->merge([
+            'publication_year' => $this->publicationYear
+        ]);
     }
 }

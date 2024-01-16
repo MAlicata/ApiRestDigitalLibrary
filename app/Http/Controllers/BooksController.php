@@ -38,6 +38,7 @@ class BooksController extends Controller
     public function store(StoreBooksRequest $request)
     {
         //
+        return new BookResource(Books::create($request->all()));
     }
 
     /**
