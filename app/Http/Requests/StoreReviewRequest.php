@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Validation\Rule;
 class StoreReviewRequest extends FormRequest
 {
     /**
@@ -11,7 +11,7 @@ class StoreReviewRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,10 @@ class StoreReviewRequest extends FormRequest
     {
         return [
             //
+            'user_id' => ['required'],
+            'book_id' => ['required'],
+            'review_text' => ['required'],
+            'rating' => ['required'],
         ];
     }
 }
