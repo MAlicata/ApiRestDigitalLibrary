@@ -12,9 +12,8 @@ class ReviewResource extends JsonResource
      *
      * @return array<string, mixed>
      */
-    public function toArray(Request $request): array
-    {
-        $targetUserId = $this->user_id;
+    public function toArray(Request $request): array 
+    {    
         return [
             'id' => $this->id,
             'userId' => $this->user_id,
