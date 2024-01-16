@@ -6,6 +6,7 @@ use App\Models\Books;
 use App\Http\Requests\StoreBooksRequest;
 use App\Http\Requests\UpdateBooksRequest;
 use App\Http\Resources\BookCollection;
+use App\Http\Resources\BookResource;
 use App\Filters\BookFilter;
 use Illuminate\Http\Request;
 
@@ -42,9 +43,10 @@ class BooksController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Books $books)
+    public function show(Books $book)
     {
         //
+        return new BookResource($book);
     }
 
     /**
