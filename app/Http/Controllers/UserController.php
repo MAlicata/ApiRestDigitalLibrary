@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\StoreBooksRequest;
-use App\Http\Requests\UpdateBooksRequest;
+use App\Http\Requests\StoreUserRequest;
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
 use App\Filters\UserFilter;
@@ -35,9 +34,10 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBooksRequest $request)
+    public function store(StoreUserRequest $request)
     {
         //
+        return new UserResource(User::create($request->all()));
     }
 
     /**

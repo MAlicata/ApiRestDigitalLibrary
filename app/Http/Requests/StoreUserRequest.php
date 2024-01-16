@@ -4,14 +4,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-class StoreBooksRequest extends FormRequest
+
+class StoreUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true; //true autorizamos a todos 
+        return true;
     }
 
     /**
@@ -23,15 +24,10 @@ class StoreBooksRequest extends FormRequest
     {
         return [
             //
-            'title' => ['required'],
-            'author' => ['required'],
-            'publicationYear' => ['required'],
-            'pages' => ['required'],
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required','min:8'],
+            'password_confirmation' => ['required', 'same:password']
         ];
-    }
-    protected function prepareForValidation(){
-        $this->merge([
-            'publication_year' => $this->publicationYear
-        ]);
     }
 }
