@@ -6,6 +6,7 @@ use App\Models\Review;
 use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
 use App\Http\Resources\ReviewCollection;
+use App\Http\Resources\ReviewResource;
 use App\Filters\ReviewFilter;
 use Illuminate\Http\Request;
 
@@ -48,7 +49,8 @@ class ReviewController extends Controller
      */
     public function show(Review $review)
     {
-        //
+         //
+         return new ReviewResource($review);
     }
 
     /**
