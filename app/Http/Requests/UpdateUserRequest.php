@@ -4,7 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-class UpdateBooksRequest extends FormRequest
+
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,20 +22,20 @@ class UpdateBooksRequest extends FormRequest
      */
     public function rules(): array
     {
-        $method = $this->method();
+       $method = $this->method();
        if($method == 'PUT'){
         return [
-            'title' => ['required'],
-            'author' => ['required'],
-            'publication_year' => ['required'],
-            'pages' => ['required'],
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required','min:8'],
+            'password_confirmation' => ['required', 'same:password'],
         ];
        }else{
         return [
-            'title' => ['sometimes','required'],
-            'author' => ['sometimes','required'],
-            'publication_year' => ['sometimes','required'],
-            'pages' => ['sometimes','required'],
+            'name' => ['sometimes','required'],
+            'email' => ['sometimes','required', 'email'],
+            'password' => ['sometimes','required','min:8'],
+            'password_confirmation' => ['sometimes','required', 'same:password'],
         ];
        }
     }
