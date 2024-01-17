@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateReviewRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateReviewRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +22,25 @@ class UpdateReviewRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        //
+            $method = $this->method();
+            if($method == 'PUT'){
+             return [
+                 //
+                 'user_id' => ['required'],
+                 'book_id' => ['required'],
+                 'review_text' => ['required'],
+                 'rating' => ['required'],
+             ];
+            }else{
+             return [
+                 //
+                 'user_id' => ['sometimes','required'],
+                 'book_id' => ['sometimes','required'],
+                 'review_text' => ['sometimes','required'],
+                 'rating' => ['sometimes','required'],
+             ];
+            }
+    
     }
 }

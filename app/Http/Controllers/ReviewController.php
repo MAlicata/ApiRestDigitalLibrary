@@ -68,6 +68,7 @@ class ReviewController extends Controller
     public function update(UpdateReviewRequest $request, Review $review)
     {
         //
+        $review->update($request->all());
     }
 
     /**
