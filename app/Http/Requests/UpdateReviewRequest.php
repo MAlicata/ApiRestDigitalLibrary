@@ -22,11 +22,9 @@ class UpdateReviewRequest extends FormRequest
      */
     public function rules(): array
     {
-        //
             $method = $this->method();
             if($method == 'PUT'){
              return [
-                 //
                  'user_id' => ['required'],
                  'book_id' => ['required'],
                  'review_text' => ['required'],
@@ -34,7 +32,6 @@ class UpdateReviewRequest extends FormRequest
              ];
             }else{
              return [
-                 //
                  'user_id' => ['sometimes','required'],
                  'book_id' => ['sometimes','required'],
                  'review_text' => ['sometimes','required'],

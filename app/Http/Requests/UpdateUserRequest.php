@@ -25,7 +25,6 @@ class UpdateUserRequest extends FormRequest
        $method = $this->method();
        if($method == 'PUT'){
         return [
-            //
             'name' => ['required'],
             'email' => ['required', 'email'],
             'password' => ['required','min:8'],
@@ -33,7 +32,6 @@ class UpdateUserRequest extends FormRequest
         ];
        }else{
         return [
-            //
             'name' => ['sometimes','required'],
             'email' => ['sometimes','required', 'email'],
             'password' => ['sometimes','required','min:8'],

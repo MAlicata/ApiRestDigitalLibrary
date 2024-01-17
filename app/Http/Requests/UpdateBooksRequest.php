@@ -24,7 +24,6 @@ class UpdateBooksRequest extends FormRequest
         $method = $this->method();
        if($method == 'PUT'){
         return [
-            //
             'title' => ['required'],
             'author' => ['required'],
             'publication_year' => ['required'],
@@ -32,7 +31,6 @@ class UpdateBooksRequest extends FormRequest
         ];
        }else{
         return [
-            //
             'title' => ['sometimes','required'],
             'author' => ['sometimes','required'],
             'publication_year' => ['sometimes','required'],
