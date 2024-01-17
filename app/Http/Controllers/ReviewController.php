@@ -74,8 +74,14 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Review $review)
+    public function destroy($id)
     {
         //
+        $review = Review::find($id);
+        if(is_null($review)){
+            return response()->json('Data not found', 404);
+        }
+        $review->delete();
+        return response()->json(['Review deleted successfully.']);
     }
 }
