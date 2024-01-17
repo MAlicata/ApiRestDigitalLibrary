@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,10 +17,11 @@ class BooksFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => User::factory(), // Crear un usuario de prueba asociado
             'title' => $this->faker->sentence,
             'author' => $this->faker->name,
             'publication_year' => $this->faker->year,
-            'pages' => $this->faker->numberBetween(1,10000)
+            'pages' => $this->faker->numberBetween(1,10000),
         ];
     }
 }

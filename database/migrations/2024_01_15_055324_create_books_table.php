@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('author');
             $table->year('publication_year');
             $table->integer('pages');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
