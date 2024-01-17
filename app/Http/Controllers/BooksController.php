@@ -78,6 +78,6 @@ class BooksController extends Controller
             return response()->json('Data not found', 404);
         }
         $book->delete();
-        return response()->json(['Task deleted successfully.']);
+        return response()->json(['Book and associated reviews deleted successfully.']);
     }
 }
