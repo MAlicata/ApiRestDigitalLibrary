@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateUserRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +22,23 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules(): array
     {
+       $method = $this->method();
+       if($method == 'PUT'){
         return [
             //
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required','min:8'],
+            'password_confirmation' => ['required', 'same:password'],
         ];
+       }else{
+        return [
+            //
+            'name' => ['sometimes','required'],
+            'email' => ['sometimes','required', 'email'],
+            'password' => ['sometimes','required','min:8'],
+            'password_confirmation' => ['sometimes','required', 'same:password'],
+        ];
+       }
     }
 }
