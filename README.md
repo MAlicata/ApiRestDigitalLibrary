@@ -87,6 +87,78 @@ The main function of this API is to manage books and reviews
 | `pages`           | `integer` |  number of pages    |
 
 
+#### Get all reviews
+
+```http
+  GET /api/v1/reviews
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` |  it is not required        |
+
+
+#### Get by id review
+
+```http
+  GET /api/v1/reviews/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+#### Post a review
+
+```http
+  POST /api/v1/reviews
+```
+
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `user_id`         | `integer` |  User's id          |
+| `book_id`         | `integer` |  Book's id          |
+| `review_text`     | `string`  |  Summary            |
+| `rating`          | `integer` |  Rating of book     |
+
+
+
+#### Delete a review
+
+```http
+  DELETE /api/v1/reviews/${id}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` |  it is not required        |
+
+
+#### Update a review
+
+```http
+  PUT /api/v1/reviews/${id}
+```
+
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `user_id`         | `integer` |  User's id          |
+| `book_id`         | `integer` |  Book's id          |
+| `review_text`     | `string`  |  Summary            |
+| `rating`          | `integer` |  Rating of book     |
+
+#### Update a field of a book
+
+```http
+  PATCH /api/v1/reviews/${id}
+```
+
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `rating`          | `integer` |  Rating of book     |
+
+
+
 
 ## About Laravel
 
