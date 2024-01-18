@@ -8,15 +8,19 @@
 </p>
 
 
+
 # Rest Api - Digital Library
 
 
 The main function of this API is to manage books and reviews
 
 
+
+
+
 ## API Reference
 
-#### Get all books
+#### List all books
 
 ```http
   GET /api/v1/books
@@ -26,7 +30,7 @@ The main function of this API is to manage books and reviews
 | :-------- | :------- | :------------------------- |
 | `api_key` | `string` |  it is not required        |
 
-#### Get book
+#### Retrieve a book
 
 ```http
   GET /api/v1/books/${id}
@@ -37,7 +41,9 @@ The main function of this API is to manage books and reviews
 | `id`      | `string` | **Required**. Id of item to fetch |
 
 
-#### Post a book
+####  Create a book
+
+This API helps you to create a new book
 
 ```http
   POST /api/v1/books
@@ -87,7 +93,7 @@ The main function of this API is to manage books and reviews
 | `pages`           | `integer` |  number of pages    |
 
 
-#### Get all reviews
+#### List all reviews
 
 ```http
   GET /api/v1/reviews
@@ -156,7 +162,6 @@ The main function of this API is to manage books and reviews
 | Parameter         | Type      | Description         |
 | :--------         |:-------   | :------------------ |
 | `rating`          | `integer` |  Rating of book     |
-
 
 
 
