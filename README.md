@@ -7,6 +7,87 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+
+# Rest Api - Digital Library
+
+
+The main function of this API is to manage books and reviews
+
+
+## API Reference
+
+#### Get all books
+
+```http
+  GET /api/v1/books
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` |  it is not required        |
+
+#### Get book
+
+```http
+  GET /api/v1/books/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+
+#### Post a book
+
+```http
+  POST /api/v1/books
+```
+
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `title`           | `string`  |  Title of the book  |
+| `author`          | `string`  |  Author's name      |
+| `publicationYear` | `DateTime`|  Year of publication|
+| `pages`           | `integer` |  number of pages    |
+| `user_id`         | `integer` |  Id of user         |
+
+
+#### Delete a book
+
+```http
+  DELETE /api/v1/books/${id}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` |  it is not required        |
+
+
+#### Update a book
+
+```http
+  PUT /api/v1/books/${id}
+```
+
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `title`           | `string`  |  Title of the book  |
+| `author`          | `string`  |  Author's name      |
+| `publicationYear` | `DateTime`|  Year of publication|
+| `pages`           | `integer` |  number of pages    |
+
+#### Update a field of a book
+
+```http
+  PATCH /api/v1/books/${id}
+```
+
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `pages`           | `integer` |  number of pages    |
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
