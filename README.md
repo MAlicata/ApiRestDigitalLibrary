@@ -15,13 +15,10 @@
 The main function of this API is to manage books and reviews
 
 
-
-
-
 ## API Reference
 
 #### List all books
-
+This API helps you to list all books
 ```http
   GET /api/v1/books
 ```
@@ -31,7 +28,7 @@ The main function of this API is to manage books and reviews
 | `api_key` | `string` |  it is not required        |
 
 #### Retrieve a book
-
+This API helps you to retrieve a book
 ```http
   GET /api/v1/books/${id}
 ```
@@ -59,7 +56,7 @@ This API helps you to create a new book
 
 
 #### Delete a book
-
+This API helps you to remove a book the storage
 ```http
   DELETE /api/v1/books/${id}
 ```
@@ -71,10 +68,11 @@ This API helps you to create a new book
 
 #### Update a book
 
+This API helps you to update a book record. All 
 ```http
   PUT /api/v1/books/${id}
 ```
-
+All parameters are required
 | Parameter         | Type      | Description         |
 | :--------         |:-------   | :------------------ |
 | `title`           | `string`  |  Title of the book  |
@@ -83,18 +81,18 @@ This API helps you to create a new book
 | `pages`           | `integer` |  number of pages    |
 
 #### Update a field of a book
-
+This API helps you to update at least one field the a book.
 ```http
   PATCH /api/v1/books/${id}
 ```
-
+All fields are not required
 | Parameter         | Type      | Description         |
 | :--------         |:-------   | :------------------ |
 | `pages`           | `integer` |  number of pages    |
 
 
 #### List all reviews
-
+This API heps you list all review records
 ```http
   GET /api/v1/reviews
 ```
@@ -105,7 +103,7 @@ This API helps you to create a new book
 
 
 #### Get by id review
-
+This API helps you to retrieve a review
 ```http
   GET /api/v1/reviews/${id}
 ```
@@ -114,8 +112,8 @@ This API helps you to create a new book
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required**. Id of item to fetch |
 
-#### Post a review
-
+#### Create a review
+This API helps you to create a new review
 ```http
   POST /api/v1/reviews
 ```
@@ -130,7 +128,7 @@ This API helps you to create a new book
 
 
 #### Delete a review
-
+This API helps you to remove a review record the storage
 ```http
   DELETE /api/v1/reviews/${id}
 ```
@@ -141,7 +139,7 @@ This API helps you to create a new book
 
 
 #### Update a review
-
+This API helps you to update a review record. All fields are required. 
 ```http
   PUT /api/v1/reviews/${id}
 ```
@@ -154,7 +152,7 @@ This API helps you to create a new book
 | `rating`          | `integer` |  Rating of book     |
 
 #### Update a field of a book
-
+This API helps you to update at least one field the review record. All fields are not required. 
 ```http
   PATCH /api/v1/reviews/${id}
 ```
@@ -162,6 +160,10 @@ This API helps you to create a new book
 | Parameter         | Type      | Description         |
 | :--------         |:-------   | :------------------ |
 | `rating`          | `integer` |  Rating of book     |
+
+
+
+
 
 
 
