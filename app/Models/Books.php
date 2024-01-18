@@ -12,7 +12,8 @@ class Books extends Model
         'title',
         'author',
         'publication_year',
-        'pages'
+        'pages',
+        'user_id'
     ];
     /**
      * Get all of the reviews for the book
