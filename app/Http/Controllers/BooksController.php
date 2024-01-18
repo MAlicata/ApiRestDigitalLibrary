@@ -22,6 +22,7 @@ class BooksController extends Controller
          $queryItems = $filter->transform($request);
          $books = Books::where($queryItems);
          return new BookCollection($books->paginate()->appends($request->query()));
+    
     }
 
     /**
@@ -38,7 +39,20 @@ class BooksController extends Controller
     public function store(StoreBooksRequest $request)
     {
         //
-        return new BookResource(Books::create($request->all()));
+        // Validación de los datos de entrada
+        $validatedData = $request->validate([
+            'title' => 'required|string',
+            'author' => 'required|string',
+            'publication_year' => 'required',
+            'pages' => 'required|integer',
+            'user_id' => 'required',
+        ]);
+
+        // Crear un nuevo libro utilizando los datos validados
+        $book = Books::create($validatedData);
+
+        // Retornar una respuesta, por ejemplo, el libro recién creado en formato JSON
+        return response()->json($book, 201);
     }
 
     /**

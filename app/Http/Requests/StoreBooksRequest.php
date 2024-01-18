@@ -27,6 +27,7 @@ class StoreBooksRequest extends FormRequest
             'author' => ['required'],
             'publicationYear' => ['required'],
             'pages' => ['required'],
+            'user_id' => ['required'],
         ];
     }
     protected function prepareForValidation(){
