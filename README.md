@@ -163,7 +163,9 @@ This API helps you to update at least one field the review record. All fields ar
 
 
 
+## Relational Data Model
 
+[Screenshot](https://drive.google.com/file/d/1nkvoHPlVjyHzMK3UiL46HdeiG25BO9eC/view?usp=sharing)
 
 
 
