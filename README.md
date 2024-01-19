@@ -162,10 +162,9 @@ This API helps you to update at least one field the review record. All fields ar
 | `rating`          | `integer` |  Rating of book     |
 
 
-
 ## Relational Data Model
 
-![App Screenshot](https://drive.google.com/file/d/1nkvoHPlVjyHzMK3UiL46HdeiG25BO9eC/view?usp=sharing)
+[Relational Model Screenshot](https://drive.google.com/file/d/1nkvoHPlVjyHzMK3UiL46HdeiG25BO9eC/view?usp=sharing)
 
 
 
