@@ -7,6 +7,167 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+
+
+# Rest Api - Digital Library
+
+
+The main function of this API is to manage books and reviews
+
+
+## API Reference
+
+#### List all books
+This API helps you to list all books
+```http
+  GET /api/v1/books
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` |  it is not required        |
+
+#### Retrieve a book
+This API helps you to retrieve a book
+```http
+  GET /api/v1/books/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+
+####  Create a book
+
+This API helps you to create a new book
+
+```http
+  POST /api/v1/books
+```
+
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `title`           | `string`  |  Title of the book  |
+| `author`          | `string`  |  Author's name      |
+| `publicationYear` | `DateTime`|  Year of publication|
+| `pages`           | `integer` |  number of pages    |
+| `user_id`         | `integer` |  Id of user         |
+
+
+#### Delete a book
+This API helps you to remove a book the storage
+```http
+  DELETE /api/v1/books/${id}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` |  it is not required        |
+
+
+#### Update a book
+
+This API helps you to update a book record. All 
+```http
+  PUT /api/v1/books/${id}
+```
+All parameters are required
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `title`           | `string`  |  Title of the book  |
+| `author`          | `string`  |  Author's name      |
+| `publicationYear` | `DateTime`|  Year of publication|
+| `pages`           | `integer` |  number of pages    |
+
+#### Update a field of a book
+This API helps you to update at least one field the a book.
+```http
+  PATCH /api/v1/books/${id}
+```
+All fields are not required
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `pages`           | `integer` |  number of pages    |
+
+
+#### List all reviews
+This API heps you list all review records
+```http
+  GET /api/v1/reviews
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` |  it is not required        |
+
+
+#### Get by id review
+This API helps you to retrieve a review
+```http
+  GET /api/v1/reviews/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+#### Create a review
+This API helps you to create a new review
+```http
+  POST /api/v1/reviews
+```
+
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `user_id`         | `integer` |  User's id          |
+| `book_id`         | `integer` |  Book's id          |
+| `review_text`     | `string`  |  Summary            |
+| `rating`          | `integer` |  Rating of book     |
+
+
+
+#### Delete a review
+This API helps you to remove a review record the storage
+```http
+  DELETE /api/v1/reviews/${id}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` |  it is not required        |
+
+
+#### Update a review
+This API helps you to update a review record. All fields are required. 
+```http
+  PUT /api/v1/reviews/${id}
+```
+
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `user_id`         | `integer` |  User's id          |
+| `book_id`         | `integer` |  Book's id          |
+| `review_text`     | `string`  |  Summary            |
+| `rating`          | `integer` |  Rating of book     |
+
+#### Update a field of a book
+This API helps you to update at least one field the review record. All fields are not required. 
+```http
+  PATCH /api/v1/reviews/${id}
+```
+
+| Parameter         | Type      | Description         |
+| :--------         |:-------   | :------------------ |
+| `rating`          | `integer` |  Rating of book     |
+
+
+## Relational Data Model
+
+[Relational Model Screenshot](https://drive.google.com/file/d/1nkvoHPlVjyHzMK3UiL46HdeiG25BO9eC/view?usp=sharing)
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
