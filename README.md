@@ -100,7 +100,7 @@ This API helps you to search book by title
 | :--------   | :------- | :------------------------- |
 | `title[eq]` | `string` |  example title             |
 
-####Search by author
+####  Search by author
 This API helps you to search book by author
 ```http
   GET /api/v1/books?author[eq]=
@@ -109,7 +109,7 @@ This API helps you to search book by author
 | :--------   | :------- | :------------------------- |
 | `author[eq]`| `string` |  example author            |
 
-####Search by publication year
+####  Search by publication year
 This API helps you to search book by publication year
 ```http
   GET /api/v1/books?publication_year[eq]=
