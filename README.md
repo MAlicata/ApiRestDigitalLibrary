@@ -90,6 +90,36 @@ All fields are not required
 | :--------         |:-------   | :------------------ |
 | `pages`           | `integer` |  number of pages    |
 
+#### Search by title
+This API helps you to search book by title 
+```http
+  GET /api/v1/books?title[eq]=
+```
+
+| Parameter   | Type     | Value                      |
+| :--------   | :------- | :------------------------- |
+| `title[eq]` | `string` |  example title             |
+
+####Search by author
+This API helps you to search book by author
+```http
+  GET /api/v1/books?author[eq]=
+```
+| Parameter   | Type     | Value                      |
+| :--------   | :------- | :------------------------- |
+| `author[eq]`| `string` |  example author            |
+
+####Search by publication year
+This API helps you to search book by publication year
+```http
+  GET /api/v1/books?publication_year[eq]=
+```
+| Parameter              | Type     | Value           |
+| :--------              | :-----   |:----------------|
+| `publication_year[eq]` | `string` |  example year   |
+
+
+
 
 #### List all reviews
 This API heps you list all review records
