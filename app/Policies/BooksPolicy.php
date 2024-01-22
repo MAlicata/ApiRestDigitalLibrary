@@ -30,6 +30,8 @@ class BooksPolicy
     public function create(User $user): bool
     {
         //
+        // Solo los usuarios autenticados pueden crear libros
+        return $user->id !== null;
     }
 
     /**

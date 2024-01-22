@@ -9,7 +9,9 @@ use App\Http\Resources\BookCollection;
 use App\Http\Resources\BookResource;
 use App\Filters\BookFilter;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Gate;
+use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 class BooksController extends Controller
 {
     /**
@@ -36,23 +38,16 @@ class BooksController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBooksRequest $request)
+    public function store(StoreBooksRequest $request, Books $book)
     {
-        //
-        // Validación de los datos de entrada
-        $validatedData = $request->validate([
-            'title' => 'required|string',
-            'author' => 'required|string',
-            'publication_year' => 'required',
-            'pages' => 'required|integer',
-            'user_id' => 'required',
-        ]);
-
-        // Crear un nuevo libro utilizando los datos validados
-        $book = Books::create($validatedData);
-
-        // Retornar una respuesta, por ejemplo, el libro recién creado en formato JSON
-        return response()->json($book, 201);
+        if(Auth::check()){
+            $userId = Auth::id();
+             // Crear un nuevo libro asociado al usuario actual
+            $book = Books::create(array_merge($request->all(), ['user_id' => $userId]));
+             // Devolver una respuesta, por ejemplo, un recurso del libro creado
+            return new BookResource($book);
+        }
+        return response()->json(['error' => 'Unauthorized'], 401);
     }
 
     /**
